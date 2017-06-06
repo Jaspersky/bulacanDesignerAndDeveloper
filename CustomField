@@ -1,0 +1,33 @@
+<?php get_header(); ?>
+    
+    <div class="sections">
+    <?php
+
+    if( have_rows('field_58d487aba1fc2', 'option') ):
+        while ( have_rows('field_58d487aba1fc2 ', 'option') ) : the_row();
+
+            $layout = get_row_layout();
+
+            switch ($layout) {
+                case 'column':
+                    get_template_part( 'templates/layout', $layout );
+                    // include "templates/layout-$layout.php";
+                    break;
+
+                case 'list';
+                    get_template_part( 'templates/layout', $layout );
+                    // include "templates/layout-$layout.php";
+                    break;
+
+                default:
+                    get_template_part( 'templates/layout', $layout );
+                    // include "templates/layout-$layout.php";
+                    break;
+            }
+        endwhile;
+    endif; 
+
+    ?>
+    </div>
+
+<?php get_footer(); ?>
